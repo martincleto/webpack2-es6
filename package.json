@@ -1,12 +1,14 @@
 {
   "name": "webpack-es6",
-  "version": "1.0.0",
-  "description": "Just playing around Webpack 2 and ES6",
+  "version": "0.1.0",
+  "author": "Santiago Martín-Cleto <martincleto@gmail.com>",
+  "description": "Webpack 2 and ES6 boilerplate",
+  "repository": "https://github.com/martincleto/webpack2-es6",
   "main": "index.js",
   "scripts": {
     "build": "webpack -p --config config/webpack.config.js --progress --colors",
-    "watch": "webpack --watch",
-    "start": "webpack-dev-server --hot --inline",
+    "watch": "webpack --config config/webpack.config.js --watch",
+    "start": "webpack-dev-server --config config/webpack.config.js --hot --inline",
     "lint:js": "./node_modules/eslint/bin/eslint.js --cache -c config/.eslintrc.json --cache-location config/.eslintcache src/js/**/*.js test/js/**/*.js; exit 0",
     "lint:sass": "./node_modules/sass-lint/bin/sass-lint.js -c config/.sass-lint.yml 'src/sass/**/*.sass' -v -q",
     "lint": "npm run lint:sass && npm run lint:js",
@@ -16,8 +18,6 @@
     "webpack",
     "es6"
   ],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
     "babel-core": "^6.21.0",
     "babel-polyfill": "^6.20.0",

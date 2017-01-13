@@ -27,6 +27,9 @@ module.exports = {
             {
                 test: /(\.jsx?)$/,
                 loader: 'babel-loader',
+                query: {
+                    compact: true
+                },
                 exclude: [
                     path.resolve(__dirname, 'node_modules'),
                     dir_js + '/**/*.spec.js'

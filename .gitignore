@@ -1,4 +1,7 @@
 .sass-cache/
 *.css.map
-coverage
-node_modules
+config/.eslintcache
+npm-debug.log
+build/
+coverage/
+node_modules/
