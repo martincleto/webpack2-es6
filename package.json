@@ -7,7 +7,7 @@
     "build": "webpack -p --config config/webpack.config.js --progress --colors",
     "watch": "webpack --watch",
     "start": "webpack-dev-server --hot --inline",
-    "lint:js": "./node_modules/eslint/bin/eslint.js --cache -c config/.eslintrc.json --cache-location config/.eslintcache src/js/**/*.js; exit 0",
+    "lint:js": "./node_modules/eslint/bin/eslint.js --cache -c config/.eslintrc.json --cache-location config/.eslintcache src/js/**/*.js test/js/**/*.js; exit 0",
     "lint:sass": "./node_modules/sass-lint/bin/sass-lint.js -c config/.sass-lint.yml 'src/sass/**/*.sass' -v -q",
     "lint": "npm run lint:sass && npm run lint:js",
     "test": "npm run lint:js && karma start config/karma.conf.js"
@@ -34,6 +34,7 @@
     "karma": "^1.3.0",
     "karma-babel-preprocessor": "^6.0.1",
     "karma-chrome-launcher": "^2.0.0",
+    "karma-coverage": "^1.1.1",
     "karma-jasmine": "^1.1.0",
     "karma-phantomjs-launcher": "^1.0.2",
     "karma-webpack": "^2.0.1",

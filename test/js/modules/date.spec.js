@@ -1,26 +1,29 @@
 
-import date from '../../../src/js/modules/date'
+import '../../../src/js/modules/date'
+import moment from 'moment'
 
 let domContext = document.createElement('div')
 let mocks = {
     eventData: {
         detail: {
-            domContext: domContext
+            domContext: document.body.appendChild(domContext)
         }
-    }
-}
-let event = new CustomEvent('greeting', mocks.eventData)
-
-beforeEach(() => {
-    document.dispatchEvent(event)
-})
+    },
+    eventName: 'greeting'
+} 
+let event = new CustomEvent(mocks.eventName, mocks.eventData)
 
 describe('date.js', () => {
-    it('should listen `greeting` custom event', () => {
-        spyOn(document, 'addEventListener')
 
-        console.log(document.addEventListener)
+    beforeEach(() => {
+        document.dispatchEvent(event)
+    })
 
-        expect(document.addEventListener).toHaveBeenCalled()
+    it('should insert a message containing the current date into the provided DOM node', () => {
+        let targetDomContext = mocks.eventData.detail.domContext
+        let actualContent = targetDomContext.innerHTML
+        let expectedContent = ' Today is ' + moment().format('dddd, MMMM Do YYYY')
+
+        expect(actualContent).toEqual(expectedContent)
     })
 })

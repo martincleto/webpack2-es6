@@ -23,7 +23,7 @@ module.exports = {
         path: dir_build
     },
     module: {
-        rules   : [
+        rules: [
             {
                 test: /(\.jsx?)$/,
                 loader: 'babel-loader',
