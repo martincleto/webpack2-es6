@@ -1,7 +1,11 @@
-.sass-cache/
+# files
+
 *.css.map
 config/.eslintcache
 npm-debug.log
+
+#folders
+
 build/
 coverage/
 node_modules/

@@ -1,8 +1,14 @@
 
 import Greeting from '../../../src/js/modules/greeting'
+import moment from 'moment'
 
 let greetingConfig = {}
 let mocks = {  // @TODO add a fixtures obj with shared mocks
+    dom: {
+        button: document.createElement('button'),
+        input: document.createElement('input'),
+        output: document.createElement('div')
+    },
     eventData: {
         detail: {
             domContext: null
@@ -10,23 +16,22 @@ let mocks = {  // @TODO add a fixtures obj with shared mocks
     },
     eventName: 'greeting'
 }
-let button = document.createElement('button')
-let input = document.createElement('input')
-let output = document.createElement('div')
 let greeting
 
 let setDomEls = () => {
-    button.id = 'btn-send'
-    input.id = 'user-name'
-    output.id = 'output'
+    mocks.dom.button.id = 'btn-send'
+    mocks.dom.input.id = 'user-name'
+    mocks.dom.output.id = 'output'
 
-    document.body.appendChild(button)
-    document.body.appendChild(input)
-    document.body.appendChild(output)
+    for (let element in mocks.dom) {
+        if (mocks.dom.hasOwnProperty(element)) {
+            document.body.appendChild(mocks.dom[element])
+        }
+    }
 
     greetingConfig.button = document.getElementById('btn-send')
     greetingConfig.input = document.getElementById('user-name')
-    greetingConfig.output = mocks.eventData.detail.domContext = document.getElementById('output')
+    greetingConfig.output = document.getElementById('output')
 
     greetingConfig.button.disabled = true
     greetingConfig.input.value = 'Mickey Mouse'
@@ -36,12 +41,16 @@ let restoreDomEls = () => {
     greetingConfig.output.innerHTML = ''
 }
 
+let fireEvent = (trigger, name) => {
+    let event = new Event(name)
+
+    trigger.dispatchEvent(event)
+}
+
 describe('greeting.js', () => {
 
     beforeAll(() => {
         setDomEls()
-
-        console.log('initial value: ' + greetingConfig.input.value)
 
         greeting = new Greeting(greetingConfig)
         greeting.init()
@@ -49,10 +58,6 @@ describe('greeting.js', () => {
 
     afterAll(() => {
         restoreDomEls()
-    })
-
-    beforeEach(() => {
-        
     })
 
     it('should clear the input value on load', () => {
@@ -63,27 +68,34 @@ describe('greeting.js', () => {
         expect(greetingConfig.button.disabled).toBeTruthy()
     })
 
-    xit('should enable the button when a user enters a valid value', () => {
-        // @TODO a `keyup` event needs to be created and fired here
+    it('should enable the button when a user enters a valid value', () => {
+        greetingConfig.input.value = 'Jack Sparrow'
+
+        fireEvent(greetingConfig.input, 'keyup')
 
         expect(greetingConfig.button.disabled).toBeFalsy()
     })
 
-    xit('should show a greeting message with the user name when the button is clicked', () => {
-        // @TODO a `click` event needs to be created and fired here
+    it('should show a greeting message with the user name when the button is clicked', () => {
+        fireEvent(greetingConfig.button, 'click')
 
+        let dateMsg = ' Today is ' + moment().format('dddd, MMMM Do YYYY')
         let actualContent = greetingConfig.output.innerHTML
-        let expectedContent = '<p>Hello <strong>' + greetingConfig.input.value + '</strong>!</p>'
+        let expectedContent = '<p>Hello <strong>' + greetingConfig.input.value + '</strong>!' + dateMsg + '</p>'
 
         expect(actualContent).toEqual(expectedContent)
     })
 
-    xit('should emit a `' + mocks.eventName + '` event with the dom node that contains the greeting message', () => {
-        // @TODO a `click` event needs to be created and fired here
-        
+    it('should emit a `' + mocks.eventName + '` event with the dom node that contains the greeting message', () => {
         spyOn(greeting, 'emit')
 
-        expect(greeting.emit).toHaveBeenCalledWith(mocks.eventName, mocks.eventData)
-    })
+        fireEvent(greetingConfig.button, 'click')
 
+        mocks.eventData.detail.domContext = greetingConfig.output.children[0]
+
+        let greetingEmitArgs = greeting.emit.calls.argsFor(0)
+
+        expect(greetingEmitArgs[0]).toEqual(mocks.eventName)
+        expect(greetingEmitArgs[1]).toEqual(mocks.eventData)
+    })
 })

@@ -3,7 +3,10 @@
   "version": "0.1.0",
   "author": "Santiago Martín-Cleto <martincleto@gmail.com>",
   "description": "Webpack 2 and ES6 boilerplate",
+  "license": "GPL 3.0",
   "repository": "https://github.com/martincleto/webpack2-es6",
+  "homepage": "https://github.com/martincleto/webpack2-es6",
+  "bugs": "https://github.com/martincleto/webpack2-es6/issues",
   "main": "index.js",
   "scripts": {
     "build": "webpack -p --config config/webpack.config.js --progress --colors",
@@ -18,6 +21,10 @@
     "webpack",
     "es6"
   ],
+  "engines": {
+    "node": ">=6",
+    "npm": ">=3"
+  },
   "dependencies": {
     "babel-core": "^6.21.0",
     "babel-polyfill": "^6.20.0",

@@ -1,7 +1,8 @@
-import Date from './modules/date';
+import './modules/date';
 import Greeting from './modules/greeting';
 
 document.addEventListener('DOMContentLoaded', function() {
+
     let greetingConfig = {
         button: document.getElementById('btn-send'),
         input: document.getElementById('user-name'),
