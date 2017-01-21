@@ -11,12 +11,10 @@ const dir_build = path.resolve(__dirname, basePath, 'build');
 
 module.exports = {
     entry: {
-        main: path.resolve(dir_js, 'main.js'),
-        vendor: [
-            'babel-polyfill',
-            'lodash',
-            'moment'
-        ]
+        main: path.resolve(dir_js, 'main.js')
+        /*
+        vendor: []
+        */
     },
     output: {
         filename: '[name].js',
@@ -39,6 +37,7 @@ module.exports = {
         ]
     },
     plugins: [
+        new webpack.ContextReplacementPlugin(/moment[\\\/]locale$/, /^\.\/(en|es)$/),
         new CopyWebpackPlugin([
             { from: dir_html } // to: output.path
         ])
