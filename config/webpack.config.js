@@ -13,9 +13,7 @@ module.exports = {
     entry: {
         main: path.resolve(dir_js, 'main.js'),
         vendor: [
-            'babel-polyfill',
-            'lodash',
-            'moment'
+            'babel-polyfill'
         ]
     },
     output: {

@@ -1,5 +1,6 @@
 
-import {template, trim} from 'lodash'
+import template from 'lodash/template'
+import trim from 'lodash/trim'
 
 class Greeting {
     constructor(config) {
