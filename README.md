@@ -14,13 +14,14 @@ or alternatively `$ git clone https://github.com/martincleto/webpack2-es6.git`
 
 ## Usage
 
-* `$ npm start` command creates a development build and starts a web server at [http://localhost:8080/](http://localhost:8080/)
+* `$ npm start` command creates a development build and starts a web server at <http://localhost:8080/>
 * `$ npm run build` command generates a production build
 * `$ npm run watch` command watches the updates on your project files
 
 ## To do
 
-* [ ] Adding SASS support
-* [ ] Adding static assets such as images, svg and so on to the build
-* [ ] Improving perfomance and decreasing Webpack build process time 
-* [ ] Adding technical notes and reference links to this doc
+* [ ] Adding e2e test <https://github.com/martincleto/webpack2-es6/tree/chore/e2e-tests>
+* [ ] Adding SASS support <https://github.com/martincleto/webpack2-es6/tree/feature/sass-support>
+* [ ] Adding static assets such as images, svg and so on to the build <https://github.com/martincleto/webpack2-es6/tree/feature/add-static-assets>
+* [ ] Improving perfomance and decreasing Webpack build process time <https://github.com/martincleto/webpack2-es6/tree/chore/improve-webpack-perfomance>
+* [ ] Adding technical notes and reference links to this doc <https://github.com/martincleto/webpack2-es6/tree/chore/common>
