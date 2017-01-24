@@ -10,6 +10,7 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack -p --progress --colors",
+    "bundle-stats": "webpack --profile --json > stats/webpack-bundle-stats.json",
     "watch": "webpack --watch",
     "start": "webpack-dev-server",
     "lint:js": "./node_modules/eslint/bin/eslint.js --cache -c config/.eslintrc.json --cache-location config/.eslintcache src/js/**/*.js test/js/**/*.js; exit 0",
@@ -47,7 +48,6 @@
     "karma-webpack": "^2.0.1",
     "sass-lint": "^1.10.2",
     "webpack": "^2.2.0",
-    "webpack-bundle-analyzer": "^2.2.1",
     "webpack-dev-server": "^2.2.0"
   }
 }
