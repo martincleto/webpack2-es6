@@ -1,18 +1,16 @@
-'use strict';
+// Common Webpack configuration
 
 const webpack = require('webpack');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const merge = require('webpack-merge');
 const path = require('path');
 
-const env = process.env.NODE_ENV || 'development';
-const basePath = './';
+const basePath = '../';
 const dir_src = path.resolve(__dirname, basePath, 'src')
 const dir_js = path.resolve(__dirname, dir_src, 'js');
 const dir_html = path.resolve(__dirname, dir_src, 'html');
 const dir_build = path.resolve(__dirname, basePath, 'build');
 
-let baseConfig = {
+module.exports = {
     entry: {
         main: path.resolve(dir_js, 'main.js'),
         vendor: [
@@ -47,6 +45,3 @@ let baseConfig = {
         ])
     ]
 };
-let envConfig = require(`./config/webpack.config.${env}.js`);
-
-module.exports = merge(baseConfig, envConfig);
