@@ -1,8 +1,8 @@
 'use strict';
 
 const webpack = require('webpack');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const merge = require('webpack-merge');
 const path = require('path');
 
@@ -31,33 +31,36 @@ let baseConfig = {
     module: {
         rules: [
             {
-                test: /(\.jsx?)$/,
-                loader: 'babel-loader',
-                exclude: [
-                    path.resolve(__dirname, 'node_modules'),
-                    dir_src_js + '/**/*.spec.js'
-                ],
-                options: {
-                    'plugins': ['transform-decorators-legacy'],
-                    'presets': ['es2015']
-                }
+              test: /(\.jsx?)$/,
+              loader: 'babel-loader',
+              exclude: [
+                  path.resolve(__dirname, 'node_modules'),
+                  dir_src_js + '/**/*.spec.js'
+              ],
+              options: {
+                'plugins': ['transform-decorators-legacy'],
+                'presets': ['es2015']
+              }
             },
             {
-                test: /\.(scss)$/,
-                loader: ExtractTextPlugin.extract(['css-loader', 'sass-loader'])
+              test: /\.scss$/,
+              loader: ExtractTextPlugin.extract(['css-loader', 'sass-loader'])
+          },
+            {
+              test: /\.html$/,
+              loader: 'html-loader'
             }
         ]
     },
     plugins: [
-        new CopyWebpackPlugin([
-            {
-              from: dir_src_html
-            }
-        ]),
         new ExtractTextPlugin({ // define where to save the file
-             filename: 'css/styles.css?[hash]',
-             allChunks: true
+          filename: 'css/styles.css?[hash]',
+          allChunks: true
         }),
+        new HtmlWebpackPlugin({
+          hash: true,
+          template: path.join(dir_src_html, 'index.html')
+        })
     ]
 };
 let envConfig = require(`./config/webpack.config.${env}.js`);
