@@ -28,6 +28,11 @@ let baseConfig = {
         filename: '[name].js?[hash]',
         path: dir_build
     },
+    resolve: {
+      alias: {
+        bourbon: path.resolve(__dirname, basePath, 'node_modules/bourbon/app/assets/stylesheets')
+      }
+    },
     module: {
         rules: [
             {

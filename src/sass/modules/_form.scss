@@ -1,0 +1,9 @@
+.form {
+  @include span(isolate 10 at 2);
+  @include susy-breakpoint($tablet-portrait) {
+    @include span(isolate 8 at 3);
+  };
+  @include susy-breakpoint($tablet-landscape) {
+    @include span(isolate 6 at 4);
+  };
+}
