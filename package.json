@@ -15,7 +15,7 @@
     "watch": "webpack --watch",
     "start": "webpack-dev-server",
     "lint:js": "node_modules/eslint/bin/eslint.js --cache -c config/.eslintrc.json --cache-location cache/.eslintcache src/js/**/*.js test/js/**/*.js; exit 0",
-    "lint:sass": "node_modules/sass-lint/bin/sass-lint.js -c config/.sass-lint.yml 'src/sass/**/*.sass' -v -q",
+    "lint:sass": "node_modules/sass-lint/bin/sass-lint.js -c config/.sass-lint.yml -v -q",
     "lint": "npm run lint:sass && npm run lint:js",
     "test": "npm run lint:js && node_modules/karma/bin/karma start config/karma.conf.js"
   },
@@ -27,6 +27,12 @@
   "engines": {
     "node": ">=6",
     "npm": ">=3"
+  },
+  "dependencies": {
+    "babel-core": "^6.21.0",
+    "babel-polyfill": "^6.20.0",
+    "lodash": "^4.17.4",
+    "moment": "^2.17.1"
   },
   "devDependencies": {
     "babel-loader": "^6.2.10",
@@ -54,11 +60,5 @@
     "webpack": "^2.2.0",
     "webpack-dev-server": "^2.2.0",
     "webpack-merge": "^2.4.0"
-  },
-  "dependencies": {
-    "babel-core": "^6.21.0",
-    "babel-polyfill": "^6.20.0",
-    "lodash": "^4.17.4",
-    "moment": "^2.17.1"
   }
 }
