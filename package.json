@@ -3,41 +3,40 @@
   "version": "0.1.0",
   "author": "Santiago Martín-Cleto <martincleto@gmail.com>",
   "description": "Webpack 2 and ES6 boilerplate",
-  "license": "GPL 3.0",
+  "license": "GPL-3.0",
   "repository": "https://github.com/martincleto/webpack2-es6",
   "homepage": "https://github.com/martincleto/webpack2-es6",
   "bugs": "https://github.com/martincleto/webpack2-es6/issues",
-  "main": "index.js",
+  "main": "index.html",
   "scripts": {
-    "build": "NODE_ENV=production webpack -p --progress --colors",
-    "bundle-stats": "webpack --profile --json > stats/webpack-bundle-stats.json",
+    "build": "npm run clean && NODE_ENV=production webpack -p --progress --colors",
+    "bundle-stats": "mkdir stats && webpack --profile --json > stats/webpack-bundle-stats.json",
+    "clean": "rm -rf build/",
     "watch": "webpack --watch",
     "start": "webpack-dev-server",
-    "lint:js": "./node_modules/eslint/bin/eslint.js --cache -c config/.eslintrc.json --cache-location config/.eslintcache src/js/**/*.js test/js/**/*.js; exit 0",
-    "lint:sass": "./node_modules/sass-lint/bin/sass-lint.js -c config/.sass-lint.yml 'src/sass/**/*.sass' -v -q",
+    "lint:js": "node_modules/eslint/bin/eslint.js --cache -c config/.eslintrc.json --cache-location cache/.eslintcache src/js/**/*.js test/js/**/*.js; exit 0",
+    "lint:sass": "node_modules/sass-lint/bin/sass-lint.js -c config/.sass-lint.yml 'src/sass/**/*.sass' -v -q",
     "lint": "npm run lint:sass && npm run lint:js",
-    "test": "npm run lint:js && karma start config/karma.conf.js"
+    "test": "npm run lint:js && node_modules/karma/bin/karma start config/karma.conf.js"
   },
   "keywords": [
     "webpack",
-    "es6"
+    "es6",
+    "sass"
   ],
   "engines": {
     "node": ">=6",
     "npm": ">=3"
   },
-  "dependencies": {
-    "babel-core": "^6.21.0",
-    "babel-polyfill": "^6.20.0",
-    "lodash": "^4.17.4",
-    "moment": "^2.17.1"
-  },
   "devDependencies": {
     "babel-loader": "^6.2.10",
     "babel-plugin-transform-decorators-legacy": "^1.3.4",
     "babel-preset-es2015": "^6.18.0",
-    "copy-webpack-plugin": "^4.0.1",
+    "css-loader": "^0.26.1",
     "eslint": "^3.13.1",
+    "extract-text-webpack-plugin": "^2.0.0-rc.0",
+    "html-loader": "^0.4.4",
+    "html-webpack-plugin": "^2.26.0",
     "jasmine": "^2.5.3",
     "karma": "^1.3.0",
     "karma-babel-preprocessor": "^6.0.1",
@@ -46,9 +45,20 @@
     "karma-jasmine": "^1.1.0",
     "karma-phantomjs-launcher": "^1.0.2",
     "karma-webpack": "^2.0.1",
+    "node-bourbon": "^4.2.8",
+    "node-sass": "^4.3.0",
     "sass-lint": "^1.10.2",
+    "sass-loader": "^4.1.1",
+    "style-loader": "^0.13.1",
+    "susy": "^2.2.12",
     "webpack": "^2.2.0",
     "webpack-dev-server": "^2.2.0",
     "webpack-merge": "^2.4.0"
+  },
+  "dependencies": {
+    "babel-core": "^6.21.0",
+    "babel-polyfill": "^6.20.0",
+    "lodash": "^4.17.4",
+    "moment": "^2.17.1"
   }
 }

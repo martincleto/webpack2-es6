@@ -2,20 +2,18 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Webpack + ES6 test</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Webpack + ES6 + SASS boilerplate</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Shrikhand" rel="stylesheet"> 
 </head>
 <body>
-
-    <h1>Webpack + ES6 test</h1>
-
-    <form action="#">
-        <input type="text" id="user-name" placeholder="Please enter your name here">
-        <button type="button" id="btn-send" disabled>Done!</button>
-    </form>
-
-    <div id="output"></div>
-
-    <script src="vendor.js"></script>
-    <script src="main.js"></script>
+    <div class="container">
+      <form action="#" class="form">
+          <h1 class="form__title">Webpack + ES6 + SASS boilerplate</h1>
+          <input type="text" id="user-name" class="form__field" placeholder="Please enter your name here">
+          <button type="button" id="btn-send" class="form__button" disabled>Done!</button>
+          <p id="output" class="form__output"></p>
+      </form>
+    </div>
 </body>
 </html>

@@ -30,7 +30,7 @@ module.exports = function(config) {
         'test/test-index.js': ['webpack']
     },
 
-    webpack: require('./webpack.config.js'),
+    webpack: require('../webpack.config.js'),
 
     webpackServer: {
         hot: false,

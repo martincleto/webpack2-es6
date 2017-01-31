@@ -2,12 +2,12 @@
 
 .DS_Store
 *.css.map
-config/.eslintcache
 npm-debug.log
 
 #folders
 
 build/
+cache/
 coverage/
 node_modules/
 stats/

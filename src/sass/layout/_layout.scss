@@ -1,0 +1,10 @@
+// Grid definition
+$susy: (
+  columns: 12
+);
+
+$max-width: $large;
+
+.container {
+  @include container();
+}
