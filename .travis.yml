@@ -1,5 +1,17 @@
+sudo: false
+
 language: node_js
+
 node_js:
   - "6"
+
+install:
+  - npm i -g npm@latest
+  - npm install
+
 env:
   - NODE_ENV=production
+
+script:
+  - npm run test
+  - npm run build
