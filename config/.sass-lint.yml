@@ -19,6 +19,7 @@ rules:
       exclude:
         - breakpoint
         - mq
+        - susy-breakpoint
   no-warn: 1
   no-debug: 1
   no-ids: 2

@@ -1,9 +1,22 @@
 .form {
+  @extend %base-text;
   @include span(isolate 10 at 2);
-  @include susy-breakpoint($tablet-portrait) {
+  @include susy-breakpoint($bp-medium-portrait) {
     @include span(isolate 8 at 3);
   };
-  @include susy-breakpoint($tablet-landscape) {
+  @include susy-breakpoint($bp-medium-landscape) {
     @include span(isolate 6 at 4);
   };
+
+  &__title {
+    @extend %heading;
+
+    font-family: $heading-font-stack;
+  }
+
+  &__button {
+    @extend %button;
+
+    font-family: $base-font-stack;
+  }
 }

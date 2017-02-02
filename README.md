@@ -35,6 +35,6 @@ Edit *package.json* to change path and JSON file name at your convenience.
 
 * [ ] Adding e2e test <https://github.com/martincleto/webpack2-es6/tree/chore/e2e-tests>
 * [ ] Adding SASS support <https://github.com/martincleto/webpack2-es6/tree/feature/sass-support>
-* [ ] Adding static assets such as images, svg and so on to the build <https://github.com/martincleto/webpack2-es6/tree/feature/add-static-assets>
+* [ ] Adding static assets such as icon-fonts, images, svg and so on to the build <https://github.com/martincleto/webpack2-es6/tree/feature/add-static-assets>
 * [ ] Improving performance and decreasing Webpack build process time <https://github.com/martincleto/webpack2-es6/tree/chore/improve-webpack-perfomance>
 * [ ] Adding technical notes and reference links to this doc <https://github.com/martincleto/webpack2-es6/tree/chore/common>

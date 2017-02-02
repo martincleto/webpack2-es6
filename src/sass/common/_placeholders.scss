@@ -1,0 +1,26 @@
+
+%base-text {
+  font-family: $base-font-stack;
+  font-size: $medium-font-size;
+  line-height: $default-line-height;
+
+  @include susy-breakpoint($bp-medium-landscape) {
+    font-size: $large-font-size;
+  }
+}
+
+%button {
+  @include background-image(linear-gradient($primary-color, $secondary-color));
+
+  color: $tertiary-color;
+  text-shadow: 1px 1px 0 $primary-color;
+  border-radius: 10px;
+}
+
+%heading {
+  font-family: $base-font-stack;
+  font-size: $large-font-size;
+  line-height: $large-line-height;
+  text-align: center;
+  margin-top: 0;
+}

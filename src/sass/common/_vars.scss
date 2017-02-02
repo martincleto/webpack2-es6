@@ -1,0 +1,43 @@
+// Global boilerplate vars
+// =================================================================== //
+// This file contents could be splitted into smaller meaningful files
+// (e.g. _breakpoints.scss, _fonts.scss, _colors.scss , etc)
+// in order to mantain a large amount of var for high-scale projects
+// =================================================================== //
+
+// Bourbon
+$em-base: 18px;
+
+// ================== Breakpoints ==================  //
+
+$bp-medium-portrait: em(600px); // 37.5em
+$bp-medium-landscape: em(1000px); // 62.5em
+$bp-large: em(1440px); // 90em
+
+// ==================== Fonts ======================  //
+
+$base-font-stack: sans-serif;
+$heading-font-stack: cursive;
+
+// base-* sizes should be used only to be set into rules applied to 'html' element
+$base-default-font-size: $em-base;
+$base-medium-font-size: 22px;
+// global sizes related to base font size
+$small-font-size: .6em;
+$medium-font-size: 1em;
+$large-font-size: 2em;
+$xl-font-size: 5em;
+
+$default-line-height: 150%;
+$large-line-height: 200%;
+
+// ==================== Layout =====================  //
+
+$layout-max-width: $bp-large;
+
+// ==================== Colors =====================  //
+
+$primary-color: #333;
+$secondary-color: lighten($primary-color,20%);
+$tertiary-color: lighten($primary-color,50%);
+$accent-color: darken($primary-color,50%);

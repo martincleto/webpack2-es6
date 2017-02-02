@@ -1,6 +1,8 @@
 import './modules/date';
 import Greeting from './modules/greeting';
 
+import '../sass/main.scss';
+
 document.addEventListener('DOMContentLoaded', function() {
 
     let greetingConfig = {

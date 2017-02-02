@@ -18,7 +18,7 @@ let baseConfig = {
     entry: {
         main: [
           path.join(dir_src_js, 'main.js'),
-          path.join(dir_src_sass, 'styles.scss')
+          path.join(dir_src_sass, 'main.scss')
         ],
         vendor: [
             'babel-polyfill'
