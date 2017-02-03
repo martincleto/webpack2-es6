@@ -16,13 +16,13 @@ const env = process.env.NODE_ENV || 'development';
 
 let baseConfig = {
     entry: {
-        main: [
-          path.join(dirJS, 'main.js'),
-          path.join(dirSASS, 'main.scss')
-        ],
-        vendor: [
-            'babel-polyfill'
-        ]
+      main: [
+        path.join(dirJS, 'main.js'),
+        path.join(dirSASS, 'main.scss')
+      ],
+      vendor: [
+        'babel-polyfill'
+      ]
     },
     output: {
         filename: '[name].js?[hash]',
@@ -36,26 +36,26 @@ let baseConfig = {
     },
     module: {
         rules: [
-            {
-              test: /(\.jsx?)$/,
-              loader: 'babel-loader',
-              exclude: [
-                  path.resolve(__dirname, 'node_modules'),
-                  dirJS + '/**/*.spec.js'
-              ],
-              options: {
-                'plugins': ['transform-decorators-legacy'],
-                'presets': ['es2015']
-              }
-            },
-            {
-              test: /\.scss$/,
-              loader: ExtractTextPlugin.extract('css-loader?sourceMap!sass-loader?sourceMap')
-          },
-            {
-              test: /\.html$/,
-              loader: 'html-loader'
+          {
+            test: /(\.jsx?)$/,
+            loader: 'babel-loader',
+            exclude: [
+                path.resolve(__dirname, 'node_modules'),
+                dirJS + '/**/*.spec.js'
+            ],
+            options: {
+              'plugins': ['transform-decorators-legacy'],
+              'presets': ['es2015']
             }
+          },
+          {
+            test: /\.scss$/,
+            loader: ExtractTextPlugin.extract('css-loader?sourceMap!sass-loader?sourceMap')
+          },
+          {
+            test: /\.html$/,
+            loader: 'html-loader'
+          }
         ]
     },
     plugins: [
