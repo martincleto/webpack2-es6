@@ -16,10 +16,7 @@ const env = process.env.NODE_ENV || 'development';
 
 let baseConfig = {
     entry: {
-      main: [
-        path.join(dirJS, 'main.js'),
-        path.join(dirSASS, 'main.scss')
-      ],
+      main: path.join(dirJS, 'main.js'),
       vendor: [
         'babel-polyfill'
       ]

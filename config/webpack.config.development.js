@@ -17,6 +17,7 @@ module.exports = {
   devServer: {
     contentBase: dirBuild,
     hot: true,
+    publicPath: '/',
     stats: {  // @see https://webpack.js.org/configuration/stats/
       assets: true,
       errors: true,
@@ -24,6 +25,11 @@ module.exports = {
       timings: true,
       version: false,
       warnings: true
+    },
+    watchContentBase: true,
+    watchOptions: {
+      aggregateTimeout: 300,
+      poll: 1000
     }
   }
 };
