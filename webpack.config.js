@@ -52,6 +52,14 @@ let baseConfig = {
           {
             test: /\.html$/,
             loader: 'html-loader'
+          },
+          {
+            test: /\.woff2?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+            loader: 'url-loader?limit=10000',
+          },
+          {
+            test: /\.(ttf|eot|svg)(\?[\s\S]+)?$/,
+            loader: 'file-loader',
           }
         ]
     },

@@ -40,16 +40,10 @@
   }
 
   &__btn-close {
-    @include hide-text;
+    //@include hide-text;
 
     &:before {
-      content: 'x';
-      position: absolute;
-      top: 0;
-      right: 0;
       font-size: $large-font-size;
-      font-weight: 800;
-      transform: rotate(45deg);
     }
   }
 }
