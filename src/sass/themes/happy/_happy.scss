@@ -1,6 +1,19 @@
-// Happy theme
+// Happy theme vars
+// Global boilerplate vars should be overwritten here
 
 // Google Fonts
 @import url(https://fonts.googleapis.com/css?family=Boogaloo|Droid+Sans);
 
-@import 'customvars.scss';
+// ==================== Fonts ======================  //
+
+$base-font-stack: 'Droid Sans', sans-serif;
+$heading-font-stack: 'Boogaloo', cursive;
+
+$large-font-size: $xl-font-size;
+
+// ==================== Colors =====================  //
+
+$primary-color: #6C648B;
+$secondary-color: #949494;
+$tertiary-color: #F2EEE2;
+$accent-color: #FA7C92;

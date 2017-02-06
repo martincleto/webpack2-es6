@@ -10,17 +10,38 @@
 }
 
 %button {
-  @include background-image(linear-gradient($primary-color, $secondary-color));
-
+  background-color: $accent-color;
   color: $tertiary-color;
-  text-shadow: 1px 1px 0 $primary-color;
-  border-radius: 10px;
+  text-shadow: 1px 1px 0 darken($accent-color, 15%);
+  line-height: $large-line-height;
+  padding: 0 25px;
+  border-radius: $default-border-radius;
+  border: 0;
+  outline: none;
+}
+
+%field {
+  width: 100%;
+  font-family: $base-font-stack;
+  line-height: $large-line-height;
+  text-align: left;
+  padding: 0 5px;
+  border-radius: $default-border-radius;
+  border: solid 1px $secondary-color;
+  outline: none;
+  margin: 0 0 20px;
+
+  &::placeholder {
+    color: $secondary-color;
+    font-size: $small-font-size;
+  }
 }
 
 %heading {
-  font-family: $base-font-stack;
+  color: $primary-color;
+  font-family: $heading-font-stack;
   font-size: $large-font-size;
-  line-height: $reset-line-height;
+  line-height: $default-line-height;
   text-align: center;
   margin-top: 0;
 }

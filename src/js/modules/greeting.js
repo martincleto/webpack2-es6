@@ -1,12 +1,14 @@
 
 import template from 'lodash/template'
 import trim from 'lodash/trim'
+import Modal from './modal'
 
 class Greeting {
     constructor(config) {
         this.button = config.button
         this.input = config.input
         this.output = config.output
+        this.modal = new Modal()
         this.template = '<p>Hello <strong><%= user %></strong>!</p>'
     }
 
@@ -27,11 +29,14 @@ class Greeting {
 
     show() {
         let compiled = template(this.template)
+        let modal = this.modal
 
-        this.output.innerHTML = compiled({'user': this.input.value})
         this.emit('greeting', {detail: {
-            domContext: this.output.children[0]
+            domContext: modal.dom.contentWrapper
         }})
+
+        modal.content = compiled({'user': this.input.value})
+        modal.show()
     }
 
     init() {

@@ -8,6 +8,8 @@
     @include span(isolate 6 at 4);
   };
 
+  text-align: center;
+
   &__title {
     @extend %heading;
 
@@ -18,5 +20,11 @@
     @extend %button;
 
     font-family: $base-font-stack;
+    cursor: pointer;
+
+    &[disabled] {
+      opacity: .65;
+      cursor: not-allowed;
+    }
   }
 }

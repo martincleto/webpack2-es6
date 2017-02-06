@@ -1,0 +1,55 @@
+/*
+  Modal Overlay
+*/
+
+.modal {
+  position: relative;
+  width: 100%;
+  max-width: 70%;
+  background: $tertiary-color;
+  margin: auto;
+  overflow: auto;
+  overflow-x: hidden;
+  padding: 1.5em;
+  transform: scale(.8);
+  transition: transform .3s;
+
+  &__outer-wrapper {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,.8);
+    overflow: auto;
+    padding: 1.5em;
+    transition: opacity .2s;
+    z-index: -1;
+
+    &[aria-hidden="true"] {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    &[aria-hidden="false"] {
+      opacity: 1;
+      visibility: visible;
+      z-index: 2;
+    }
+  }
+
+  &__btn-close {
+    @include hide-text;
+
+    &:before {
+      content: 'x';
+      position: absolute;
+      top: 0;
+      right: 0;
+      font-size: $large-font-size;
+      font-weight: 800;
+      transform: rotate(45deg);
+    }
+  }
+}
