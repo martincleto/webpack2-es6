@@ -4,6 +4,7 @@ $susy: (
 );
 
 html {
+  box-sizing: border-box;
   font-size: $base-default-font-size;
 
   @include susy-breakpoint($bp-medium-landscape) {
@@ -11,9 +12,19 @@ html {
   }
 }
 
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
 body {
   color: $primary-color;
   background-color: $tertiary-color;
+}
+
+p {
+  margin-top: 0;
 }
 
 .container {
@@ -22,10 +33,6 @@ body {
 
   max-width: $layout-max-width;
   height: 100vh;
-
-  p {
-    margin-top: 0;
-  }
 }
 
 #{$all-text-inputs} {

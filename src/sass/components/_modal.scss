@@ -1,49 +1,65 @@
-/*
-  Modal Overlay
-*/
 
 .modal {
+  @extend %base-text;
+
   position: relative;
   width: 100%;
   max-width: 70%;
   background: $tertiary-color;
+  color: $primary-color;
   margin: auto;
   overflow: auto;
   overflow-x: hidden;
-  padding: 1.5em;
+  padding: 2em;
   transform: scale(.8);
   transition: transform .3s;
 
-  &__outer-wrapper {
-    display: flex;
-    position: fixed;
+  &__btn-close {
+    @extend %button-icon;
+
+    position: absolute;
     top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,.8);
-    overflow: auto;
-    padding: 1.5em;
-    transition: opacity .2s;
-    z-index: -1;
+    right: 3px;
+    display: flex;
+    font-size: 0;
 
-    &[aria-hidden="true"] {
-      opacity: 0;
-      visibility: hidden;
+    &:before {
+      color: $accent-color;
+      font-size: $xl-font-size;
+      cursor: pointer;
     }
+  }
+}
 
-    &[aria-hidden="false"] {
-      opacity: 1;
-      visibility: visible;
-      z-index: 2;
+.modal__outer-wrapper {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,.8);
+  overflow: auto;
+  padding: 1.5em;
+  transition: opacity .3s;
+  z-index: -1;
+
+  &[aria-hidden="true"] {
+    opacity: 0;
+    visibility: hidden;
+
+    & .modal {
+      transform: scale(.8);
     }
   }
 
-  &__btn-close {
-    //@include hide-text;
+  &[aria-hidden="false"] {
+    opacity: 1;
+    visibility: visible;
+    z-index: 2;
 
-    &:before {
-      font-size: $large-font-size;
+    & .modal {
+      transform: scale(1);
     }
   }
 }

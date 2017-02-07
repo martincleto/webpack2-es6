@@ -30,11 +30,12 @@ class Greeting {
         let compiled = template(this.template)
         let modal = this.modal
 
+        modal.content = compiled({'user': this.input.value})
+
         this.emit('greeting', {detail: {
             domContext: modal.dom.contentWrapper
         }})
 
-        modal.content = compiled({'user': this.input.value})
         modal.show()
     }
 

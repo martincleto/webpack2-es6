@@ -17,7 +17,7 @@
     "lint:js": "node_modules/eslint/bin/eslint.js --cache -c config/.eslintrc.json --cache-location cache/.eslintcache src/js/**/*.js test/js/**/*.js; exit 0",
     "lint:sass": "node_modules/sass-lint/bin/sass-lint.js -c config/.sass-lint.yml -v -q",
     "lint": "npm run lint:sass && npm run lint:js",
-    "test": "npm run lint:js && node_modules/karma/bin/karma start config/karma.conf.js"
+    "test": "npm run lint && node_modules/karma/bin/karma start config/karma.conf.js"
   },
   "keywords": [
     "webpack",

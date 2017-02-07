@@ -29,7 +29,7 @@ class Modal {
     setup() {
         document.body.insertAdjacentHTML(
             'beforeend',
-            `<div class="modal__outer-wrapper"><div class="modal" id=${this.id}><div class="modal__content">${this.content}</div><i class="fa fa-times modal__btn-close">Close</i></div></div>`
+            `<div class="modal__outer-wrapper"><div class="modal" id=${this.id}><div class="modal__content">${this.content}</div><button class="fa fa-times modal__btn-close">Close</button></div></div>`
         )
 
         let theModal = document.getElementById(this.id)

@@ -16,15 +16,11 @@
     font-family: $heading-font-stack;
   }
 
+  &__field {
+    width: 90%;
+  }
+
   &__button {
     @extend %button;
-
-    font-family: $base-font-stack;
-    cursor: pointer;
-
-    &[disabled] {
-      opacity: .65;
-      cursor: not-allowed;
-    }
   }
 }
