@@ -1,13 +1,11 @@
 
 import Greeting from '../../../src/js/modules/greeting'
-import moment from 'moment'
 
 let greetingConfig = {}
 let mocks = {  // @TODO add a fixtures obj with shared mocks
     dom: {
         button: document.createElement('button'),
-        input: document.createElement('input'),
-        output: document.createElement('div')
+        input: document.createElement('input')
     },
     eventData: {
         detail: {
@@ -21,7 +19,6 @@ let greeting
 let setDomEls = () => {
     mocks.dom.button.id = 'btn-send'
     mocks.dom.input.id = 'user-name'
-    mocks.dom.output.id = 'output'
 
     for (let element in mocks.dom) {
         if (mocks.dom.hasOwnProperty(element)) {
@@ -31,14 +28,9 @@ let setDomEls = () => {
 
     greetingConfig.button = document.getElementById('btn-send')
     greetingConfig.input = document.getElementById('user-name')
-    greetingConfig.output = document.getElementById('output')
 
     greetingConfig.button.disabled = true
     greetingConfig.input.value = 'Mickey Mouse'
-}
-
-let restoreDomEls = () => {
-    greetingConfig.output.innerHTML = ''
 }
 
 let fireEvent = (trigger, name) => {
@@ -54,10 +46,8 @@ describe('greeting.js', () => {
 
         greeting = new Greeting(greetingConfig)
         greeting.init()
-    })
 
-    afterAll(() => {
-        restoreDomEls()
+        mocks.eventData.detail.domContext = greeting.modal.dom.contentWrapper
     })
 
     it('should clear the input value on load', () => {
@@ -76,26 +66,26 @@ describe('greeting.js', () => {
         expect(greetingConfig.button.disabled).toBeFalsy()
     })
 
-    it('should show a greeting message with the user name when the button is clicked', () => {
-        fireEvent(greetingConfig.button, 'click')
-
-        let dateMsg = ' Today is ' + moment().format('dddd, MMMM Do YYYY')
-        let actualContent = greetingConfig.output.innerHTML
-        let expectedContent = '<p>Hello <strong>' + greetingConfig.input.value + '</strong>!' + dateMsg + '</p>'
-
-        expect(actualContent).toEqual(expectedContent)
-    })
-
     it('should emit a `' + mocks.eventName + '` event with the dom node that contains the greeting message', () => {
         spyOn(greeting, 'emit')
 
         fireEvent(greetingConfig.button, 'click')
 
-        mocks.eventData.detail.domContext = greetingConfig.output.children[0]
-
         let greetingEmitArgs = greeting.emit.calls.argsFor(0)
 
         expect(greetingEmitArgs[0]).toEqual(mocks.eventName)
         expect(greetingEmitArgs[1]).toEqual(mocks.eventData)
+    })
+
+    it('should show open a modal with content when the button is clicked', () => {
+        spyOn(greeting.modal, 'show')
+
+        fireEvent(greetingConfig.button, 'click')
+
+        let actualModalContent = greeting.modal.content
+        let expectedModalContent = '<p>Hello <strong>' + greetingConfig.input.value + '</strong>!</p>'
+
+        expect(actualModalContent).toEqual(expectedModalContent)
+        expect(greeting.modal.show).toHaveBeenCalled()
     })
 })

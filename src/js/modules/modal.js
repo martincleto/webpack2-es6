@@ -1,14 +1,9 @@
-/**
-  * Class Modal
-  *
-  */
 
 class Modal {
     constructor(content) {
         this._id = 'modal-' + Date.now()
         this._content = content ? content : ''
         this._dom = {}
-        this.initialized = false
         this.setup()
     }
 
@@ -55,8 +50,6 @@ class Modal {
 
             }, false)
         })
-
-        this.initialized = true
     }
 
     show() {

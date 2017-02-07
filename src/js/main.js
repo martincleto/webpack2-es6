@@ -7,8 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     let greetingConfig = {
         button: document.getElementById('btn-send'),
-        input: document.getElementById('user-name'),
-        output: document.getElementById('output')
+        input: document.getElementById('user-name')
     };
     let greeting = new Greeting(greetingConfig)
 

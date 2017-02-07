@@ -7,7 +7,6 @@ class Greeting {
     constructor(config) {
         this.button = config.button
         this.input = config.input
-        this.output = config.output
         this.modal = new Modal()
         this.template = '<p>Hello <strong><%= user %></strong>!</p>'
     }

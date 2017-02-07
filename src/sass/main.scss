@@ -1,6 +1,7 @@
 // Third-party dependencies
 @import 'vendor/normalize';
 @import 'vendor/font-awesome/font-awesome';
+$output-bourbon-deprecation-warnings: false;
 @import '~bourbon/bourbon';
 @import '~susy/sass/susy';
 
