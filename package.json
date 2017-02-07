@@ -54,6 +54,7 @@
     "karma-webpack": "^2.0.1",
     "node-bourbon": "^4.2.8",
     "node-sass": "^4.3.0",
+    "postcss-loader": "^1.2.2",
     "sass-lint": "^1.10.2",
     "sass-loader": "^4.1.1",
     "style-loader": "^0.13.1",
@@ -62,5 +63,10 @@
     "webpack": "^2.2.0",
     "webpack-dev-server": "^2.2.0",
     "webpack-merge": "^2.4.0"
+  },
+  "postcss": {
+    "plugins": {
+        "autoprefixer": {}
+    }
   }
 }
