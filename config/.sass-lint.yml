@@ -1,0 +1,34 @@
+files:
+  include: 'src/sass/**/*.scss'
+  ignore:
+    - 'src/sass/vendor/**/*.*'
+options:
+  formatter: stylish
+  merge-default-rules: false
+  max-warnings: 50
+rules:
+  bem-depth:
+    - 0
+    - max-depth: 1
+  extends-before-mixins: 2
+  extends-before-declarations: 2
+  placeholder-in-extend: 2
+  mixins-before-declarations:
+    - 2
+    -
+      exclude:
+        - breakpoint
+        - mq
+        - susy-breakpoint
+  no-warn: 1
+  no-debug: 1
+  no-ids: 2
+  no-important: 2
+  hex-notation:
+    - 2
+    -
+      style: uppercase
+  indentation:
+    - 2
+    -
+      size: 2

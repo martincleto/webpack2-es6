@@ -1,0 +1,50 @@
+// Global boilerplate vars
+// =================================================================== //
+// This file contents could be splitted into smaller meaningful files
+// (e.g. _breakpoints.scss, _fonts.scss, _colors.scss , etc)
+// in order to mantain a large amount of var for high-scale projects
+// =================================================================== //
+
+// ==================== Bourbon ====================  //
+// Bourbon pre-defined font stacks vars overwritten here
+$modular-scale-base: 1rem;
+
+// ================== Breakpoints ==================  //
+
+$bp-medium-portrait: 37.5em; // 600px
+$bp-medium-landscape: 62.5em; // 1000px
+$bp-large: 90em; // 1440px // 90em
+
+// ==================== Fonts ======================  //
+// Bourbon pre-defined font stacks vars used here
+
+$base-font-stack: $helvetica;
+$heading-font-stack: $georgia;
+
+// base-* sizes should be used only to be set into rules applied to 'html' element
+$base-default-font-size: 16px;
+$base-medium-font-size: 22px;
+// global sizes related to base font size
+$small-font-size: modular-scale(-1);
+$medium-font-size: $modular-scale-base;
+$large-font-size: modular-scale(2);
+$xl-font-size: modular-scale(3);
+
+$default-line-height: 150%;
+$large-line-height: 200%;
+$reset-line-height: 100%;
+
+// ==================== Layout =====================  //
+
+$layout-max-width: $bp-large;
+
+// ==================== Colors =====================  //
+
+$primary-color: #373737;
+$secondary-color: #DCD0D0;
+$tertiary-color: lighten($primary-color, 74%);
+$accent-color: #C0B283;
+
+// ================= Other default =================  //
+
+$default-border-radius: 6px;

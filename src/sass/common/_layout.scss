@@ -1,0 +1,46 @@
+// Grid definition
+$susy: (
+  columns: 12
+);
+
+html {
+  box-sizing: border-box;
+  font-size: $base-default-font-size;
+
+  @include susy-breakpoint($bp-medium-landscape) {
+    font-size: $base-medium-font-size;
+  }
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  color: $primary-color;
+  background-color: $tertiary-color;
+}
+
+p {
+  margin-top: 0;
+}
+
+.container {
+  @include container;
+  @include flex-vertical-align;
+
+  max-width: $layout-max-width;
+  height: 100vh;
+}
+
+#{$all-text-inputs} {
+  @extend %field;
+}
+
+#{$all-text-inputs-active},
+#{$all-text-inputs-hover},
+#{$all-text-inputs-hover} {
+  border-color: $accent-color;
+}
