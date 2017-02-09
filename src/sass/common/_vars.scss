@@ -37,6 +37,11 @@ $reset-line-height: 100%;
 // ==================== Layout =====================  //
 
 $layout-max-width: $bp-large;
+// $elements determine an ordered group of elements from lowest to highest
+// to be consumed by index() SASS function
+// @see http://sass-lang.com/documentation/Sass/Script/Functions.html#index-instance_method
+$indexed-elements: sticky, modal, navigation;
+$zindex-reset: -1;
 
 // ==================== Colors =====================  //
 
