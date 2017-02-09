@@ -1,5 +1,17 @@
 
-@mixin flex-vertical-align() {
+@mixin flex-center() {
   display: flex;
   align-items: center;
+  justify-content: center;
+}
+
+@mixin sticky($position: top, $value: 0) {
+  @if $position == top {
+    top: $value;
+  } @else if $position == bottom {
+    bottom: $value;
+  }
+
+  position: fixed;
+  z-index: index($indexed-elements, sticky);
 }

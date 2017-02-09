@@ -11,13 +11,19 @@
   font-family: $base-font-stack;
   text-shadow: 1px 1px 0 darken($accent-color, 15%);
   line-height: $large-line-height;
-  padding: 0 25px;
+  padding: 0 1.6rem;
   border-radius: $default-border-radius;
   border: 0;
   outline: none;
   cursor: pointer;
   opacity: 1;
-  transition: opacity .3s ease-in;
+  transition: all .3s ease-in;
+
+  &:active,
+  &:hover,
+  &:focus {
+    background-color: darken($accent-color, 14%);
+  }
 
   &[disabled] {
     opacity: .6;
@@ -38,15 +44,14 @@
   font-family: $base-font-stack;
   line-height: $large-line-height;
   text-align: left;
-  padding: 0 5px;
+  padding: 0 .5rem;
   border-radius: $default-border-radius;
   border: solid 1px $secondary-color;
   outline: none;
-  margin: 0 0 20px;
+  margin: 0 0 2rem;
 
   &::placeholder {
     color: $secondary-color;
-    font-size: $small-font-size;
   }
 }
 
@@ -57,4 +62,16 @@
   line-height: $default-line-height;
   text-align: center;
   margin-top: 0;
+}
+
+%link {
+  color: $accent-color;
+  outline: none;
+  transition: color .5s ease-out;
+
+  &:active,
+  &:hover,s
+  &:focus {
+    color: darken($accent-color, 40%);
+  }
 }

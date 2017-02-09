@@ -1,0 +1,14 @@
+.footer {
+  @include sticky(bottom);
+
+  width: 100%;
+  font-size: $small-font-size;
+  text-align: center;
+  padding: 1rem;
+
+  &__img {
+    width: 1.5rem;
+    height: auto;
+    vertical-align: middle;
+  }
+}

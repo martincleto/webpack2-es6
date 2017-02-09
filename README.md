@@ -22,12 +22,12 @@ or alternatively `$ git clone https://github.com/martincleto/webpack2-es6.git`
 ## Notes for developers
 
 ### SASS libraries
-This boilerplate comes with [Bourbon](http://bourbon.io/) and [Susy](http://susy.oddbird.net/) libraries for convenient [SASS](http://sass-lang.com/) development.
+This boilerplate comes with [Bourbon](http://bourbon.io/) library for convenient [SASS](http://sass-lang.com/) development.
 
 If you want to use other SASS libraries (or no libraries at all) just follow these steps
 
-* Uninstall them by run `$ npm uninstall node-bourbon susy --save dev`  
-* Remove their corresponding *@import* entries from [src/sass/main.scss](blob/master/src/sass/main.scss)
+* Uninstall it: `$ npm uninstall node-bourbon --save dev`  
+* Remove it corresponding *@import* entry from [src/sass/main.scss](blob/master/src/sass/main.scss)
 * Remove *bourbon* entry from *alias* section in [webpack.config.js](blob/master/webpack.config.js)
 
 ### PostCSS
@@ -47,8 +47,9 @@ Edit *package.json* to change path and JSON file name at your convenience.
 
 ## To do
 
+* [ ] Setting a production-like env by a basic node server 
 * [ ] Adding e2e test <https://github.com/martincleto/webpack2-es6/tree/chore/e2e-tests>
 * [x] ~~Adding SASS support~~ <https://github.com/martincleto/webpack2-es6/tree/feature/sass-support>
-* [ ] Adding static assets such as icon-fonts, images, svg and so on to the build <https://github.com/martincleto/webpack2-es6/tree/feature/add-static-assets>
+* [x] ~~Adding static assets such as icon-fonts, images, svg and so on to the build~~ <https://github.com/martincleto/webpack2-es6/tree/feature/add-static-assets>
 * [ ] Improving performance and decreasing Webpack build process time <https://github.com/martincleto/webpack2-es6/tree/chore/improve-webpack-perfomance>
 * [ ] Adding technical notes and reference links to this doc <https://github.com/martincleto/webpack2-es6/tree/chore/common>
