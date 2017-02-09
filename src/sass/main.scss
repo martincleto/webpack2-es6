@@ -1,9 +1,11 @@
+// Disable annoying warnings - set to true for debugging
+$output-bourbon-deprecation-warnings: false;
+
 // Third-party dependencies
 @import 'vendor/normalize';
 @import 'vendor/font-awesome/font-awesome';
-$output-bourbon-deprecation-warnings: false;
 @import '~bourbon/bourbon';
-@import '~susy/sass/susy';
+@import '~breakpoint/breakpoint';
 
 // Global vars
 @import 'common/vars';
@@ -21,3 +23,4 @@ $output-bourbon-deprecation-warnings: false;
 
 // Modules
 @import 'modules/form';
+@import 'modules/footer';

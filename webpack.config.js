@@ -1,6 +1,7 @@
 'use strict';
 
 const webpack = require('webpack');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const merge = require('webpack-merge');
@@ -8,9 +9,9 @@ const path = require('path');
 
 const basePath = './';
 const dirSrc = path.resolve(__dirname, basePath, 'src');
+const dirAssets = path.resolve(__dirname, dirSrc, 'assets');
 const dirHTML = path.resolve(__dirname, dirSrc, 'html');
 const dirJS = path.resolve(__dirname, dirSrc, 'js');
-const dirSASS = path.resolve(__dirname, dirSrc, 'sass');
 const dirBuild = path.resolve(basePath, 'build');
 const env = process.env.NODE_ENV || 'development';
 
@@ -28,7 +29,8 @@ let baseConfig = {
     },
     resolve: {
       alias: {
-        bourbon: path.resolve(__dirname, basePath, 'node_modules/bourbon/app/assets/stylesheets')
+        bourbon: path.resolve(__dirname, basePath, 'node_modules/bourbon/app/assets/stylesheets'),
+        breakpoint: path.resolve(__dirname, basePath, 'node_modules/breakpoint-sass/stylesheets')
       }
     },
     module: {
@@ -54,16 +56,39 @@ let baseConfig = {
             loader: 'html-loader'
           },
           {
+            test: /\.(jpe?g|png|gif|svg)$/,
+            exclude: [
+              path.join(dirSrc, 'assets/fonts')
+            ],
+            loader: 'file-loader?name=images/[name].[ext]?[hash]'
+          },
+          {
             test: /\.woff2?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-            loader: 'url-loader?limit=10000',
+            loader: 'url-loader?limit=10000&name=fonts/[name].[ext]?[hash]',
+            include: [
+              path.join(dirSrc, 'assets/fonts')
+            ],
           },
           {
             test: /\.(ttf|eot|svg)(\?[\s\S]+)?$/,
-            loader: 'file-loader',
+            loader: 'file-loader?name=fonts/[name].[ext]?[hash]',
+            include: [
+              path.join(dirSrc, 'assets/fonts')
+            ],
           }
         ]
     },
     plugins: [
+        new CopyWebpackPlugin([
+          {
+            from: dirAssets,
+            ignore: [
+              '.DS_Store',
+              'fontawesome*',
+              '*.otf'
+            ]
+          }
+        ]),
         new ExtractTextPlugin({
           filename: 'css/styles.css?[hash]',
           allChunks: true
