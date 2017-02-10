@@ -39,15 +39,14 @@ If you want to add or remove PostCSS plugins you need to update the *postcss* se
 
 In order to improve and lint your bundle, you might want to inspect and analyze it. A `bundle-stats` npm script is available for this purpose.
 
-* Create a new folder *stats* into your project root folder: `$ mkdir stats`
-* `$ npm run bundle-stats`: a *webpack-bundle-stats.json* file will be created into stats/ folder
+* `$ npm run bundle-stats`: creates a *stats* folder into your project root containing a *webpack-bundle-stats.json* file.
 * Browse <https://webpack.github.io/analyse/> and upload the JSON file. A comprehensive profiling UI will be loaded based on you bundle stats.
 
 Edit *package.json* to change path and JSON file name at your convenience.
 
 ## To do
 
-* [ ] Setting a production-like env by a basic node server 
+* [ ] Setting a production-like env by a basic node server
 * [ ] Adding e2e test <https://github.com/martincleto/webpack2-es6/tree/chore/e2e-tests>
 * [x] ~~Adding SASS support~~ <https://github.com/martincleto/webpack2-es6/tree/feature/sass-support>
 * [x] ~~Adding static assets such as icon-fonts, images, svg and so on to the build~~ <https://github.com/martincleto/webpack2-es6/tree/feature/add-static-assets>

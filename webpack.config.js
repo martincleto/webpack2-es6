@@ -1,19 +1,23 @@
-'use strict';
+'use strict'
 
-const webpack = require('webpack');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const merge = require('webpack-merge');
-const path = require('path');
+const webpack = require('webpack')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const dop = require('dop')
+const merge = require('webpack-merge')
+const path = require('path')
 
-const basePath = './';
-const dirSrc = path.resolve(__dirname, basePath, 'src');
-const dirAssets = path.resolve(__dirname, dirSrc, 'assets');
-const dirHTML = path.resolve(__dirname, dirSrc, 'html');
-const dirJS = path.resolve(__dirname, dirSrc, 'js');
-const dirBuild = path.resolve(basePath, 'build');
-const env = process.env.NODE_ENV || 'development';
+const basePath = './'
+const dirSrc = path.resolve(__dirname, basePath, 'src')
+const dirAssets = path.resolve(__dirname, dirSrc, 'assets')
+const dirHTML = path.resolve(__dirname, dirSrc, 'html')
+const dirJS = path.resolve(__dirname, dirSrc, 'js')
+const dirBuild = path.resolve(basePath, 'build')
+const env = process.env.NODE_ENV || 'development'
+const listener = dop.listen()
+
+// Config
 
 let baseConfig = {
     entry: {
@@ -98,7 +102,19 @@ let baseConfig = {
           template: path.join(dirHTML, 'index.html')
         })
     ]
-};
-let envConfig = require(`./config/webpack.config.${env}.js`);
+}
+let envConfig = require(`./config/webpack.config.${env}.js`)
 
-module.exports = merge(baseConfig, envConfig);
+// Server API to other nodes to subscribe
+
+const buildData = dop.register({
+  date: new Date()
+})
+
+//buildData.getBuildHash = () => '[hash]'
+
+dop.onSubscribe(() => {
+  return buildData
+})
+
+module.exports = merge(baseConfig, envConfig)
