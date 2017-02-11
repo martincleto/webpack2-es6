@@ -4,7 +4,7 @@ const webpack = require('webpack')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const dop = require('dop')
+//const dop = require('dop')
 const merge = require('webpack-merge')
 const path = require('path')
 
@@ -15,7 +15,7 @@ const dirHTML = path.resolve(__dirname, dirSrc, 'html')
 const dirJS = path.resolve(__dirname, dirSrc, 'js')
 const dirBuild = path.resolve(basePath, 'build')
 const env = process.env.NODE_ENV || 'development'
-const listener = dop.listen()
+//const listener = dop.listen()
 
 // Config
 
@@ -106,7 +106,7 @@ let baseConfig = {
 let envConfig = require(`./config/webpack.config.${env}.js`)
 
 // Server API to other nodes to subscribe
-
+/*
 const buildData = dop.register({
   date: new Date()
 })
@@ -116,5 +116,5 @@ const buildData = dop.register({
 dop.onSubscribe(() => {
   return buildData
 })
-
+*/
 module.exports = merge(baseConfig, envConfig)

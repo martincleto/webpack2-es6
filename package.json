@@ -15,7 +15,8 @@
     "lint:js": "node_modules/eslint/bin/eslint.js --cache -c config/.eslintrc.json --cache-location cache/.eslintcache src/js/**/*.js test/js/**/*.js; exit 0",
     "lint:sass": "node_modules/sass-lint/bin/sass-lint.js -c config/.sass-lint.yml -v -q",
     "lint": "npm run lint:sass && npm run lint:js",
-    "serve": "npm run build && node server.js",
+    "preinstall": "node run clean",
+    "serve": "npm run build && node server/server.js",
     "start": "node_modules/webpack-dev-server/bin/webpack-dev-server.js",
     "test": "npm run lint && node_modules/karma/bin/karma start config/karma.conf.js",
     "watch": "node_modules/webpack/bin/webpack.js --watch"
