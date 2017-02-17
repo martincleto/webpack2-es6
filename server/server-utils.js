@@ -6,6 +6,8 @@ const mime = require('mime-types')
 const path = require('path')
 const url = require('url')
 
+const buildPath = path.resolve(__dirname, '../build')  //@TODO fetch this from Webpack
+
 function changeDir(newDirPath) {
   try {
     process.chdir(newDirPath)
@@ -63,7 +65,7 @@ function log(message, level) {
 }
 
 module.exports = {
-  buildPath: path.resolve(__dirname, '../build'),  //@TODO fetch this from Webpack
+  buildPath: buildPath,
   changeDir: changeDir,
   log: log,
   reqHandler: reqHandler

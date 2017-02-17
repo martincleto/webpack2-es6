@@ -5,9 +5,8 @@
 const webpack = require('webpack');
 const path = require('path');
 
-// @TODO [DRY] fetch 'dir_build' from main config file
 const basePath = '../';
-const dirBuild = path.resolve(__dirname, basePath, 'build');
+const dirBuild = path.resolve(__dirname, basePath, 'build'); // @TODO [DRY] fetch 'dirBuild' from main config file
 
 module.exports = {
   plugins: [

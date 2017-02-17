@@ -13,5 +13,5 @@ module.exports = {
       test: /(\.jsx?)$/
     })
   ],
-  devtool: 'cheap-module-source-map'
+  devtool: 'cheap-module-source-map',
 };

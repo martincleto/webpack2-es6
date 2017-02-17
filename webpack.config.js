@@ -4,7 +4,7 @@ const webpack = require('webpack')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-//const dop = require('dop')
+const dop = require('dop')
 const merge = require('webpack-merge')
 const path = require('path')
 
@@ -15,7 +15,6 @@ const dirHTML = path.resolve(__dirname, dirSrc, 'html')
 const dirJS = path.resolve(__dirname, dirSrc, 'js')
 const dirBuild = path.resolve(basePath, 'build')
 const env = process.env.NODE_ENV || 'development'
-//const listener = dop.listen()
 
 // Config
 
@@ -105,16 +104,23 @@ let baseConfig = {
 }
 let envConfig = require(`./config/webpack.config.${env}.js`)
 
-// Server API to other nodes to subscribe
-/*
-const buildData = dop.register({
-  date: new Date()
-})
+if (process.env.broadcast) {
+  // Server API to other nodes to subscribe
+  const listener = dop.listen()
 
-//buildData.getBuildHash = () => '[hash]'
+  listener.on('connect', node => {
+    console.log(`New client with token ${node.token} connected`)
+  })
 
-dop.onSubscribe(() => {
-  return buildData
-})
-*/
+  const buildData = dop.register({
+    hash: '[hash]'
+  })
+
+  //buildData.getBuildHash = () => '[hash]'
+
+  dop.onSubscribe(() => {
+    return buildData
+  })
+}
+
 module.exports = merge(baseConfig, envConfig)
